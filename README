@@ -1,0 +1,9 @@
+pub   4096R/9B360F2D 2013-12-31 [expires: 2018-12-30]
+      Key fingerprint = D5E4 A51D F8D2 55B9 FAC6  A9BB 2F96 07F0 9B36 0F2D
+uid                  Felix C. Stegerman (obfusk) <flx@obfusk.net>
+uid                  Felix C. Stegerman (obfusk) <flx@fsfe.org>
+uid                  Felix C. Stegerman (obfusk) <flx@obfusk.org>
+sub   4096R/27FC6CC6 2013-12-31 [expires: 2018-12-30]
+sub   4096R/48E304DF 2013-12-31 [expires: 2018-12-30]
+sub   4096R/71E8E6D0 2013-12-31 [expires: 2018-12-30]
+
