@@ -37,7 +37,7 @@
 
 ### 1. Packages
 
-  * `gnupg2`
+  `gnupg2`, `scdaemon`
 
 ### 2. Configuration
 
@@ -107,7 +107,7 @@ $ gpg2 --homedir ~/gnupg-COPY --edit $KEY
 
 ### 1. Packages
 
-  * `gnupg2`, `pinentry-gtk2`
+  `gnupg2`, `scdaemon`, `pinentry-gtk2`
 
 ### 2. Configuration
 
