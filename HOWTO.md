@@ -112,7 +112,8 @@ $ gpg2 --homedir ~/gnupg-COPY --edit $KEY
 ### 2. Configuration
 
   * Configuration Files
-  * Disable `ssh-agent` autostart
+  * Disable autostart of SSH Agent and GPG Agent (e.g. in
+    gnome-session-properties)
   * udev?
 
 ### 3. Import Public Key and Use Card
