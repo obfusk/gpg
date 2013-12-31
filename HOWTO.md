@@ -2,7 +2,7 @@
 
     File        : HOWTO.md
     Maintainer  : Felix C. Stegerman <flx@obfusk.net>
-    Date        : 2013-12-30
+    Date        : 2013-12-31
 
     Copyright   : Copyright (C) 2013  Felix C. Stegerman
 
@@ -17,25 +17,124 @@
   made sure to use strong hashes; and I've used an authentication
   subkey for SSH.
 
-  For more detailed tutorials and blog posts, see the Links.
-
-  NB: I recommend using a secure computer to generate and manage keys
-  on (e.g. Debian on a flash drive, used only for this purpose).
-  Also: **MAKE BACKUPS !!!**.
-
   I will refer to the secure computer as `orks`, the daily computer as
   `daily`, and both as `both`.
 
+  For more detailed tutorials and blog posts, see the Links.
+
+  NB: I recommend using a secure computer to generate and manage keys
+  on (e.g. Debian on a flash drive, used only for this purpose, not
+  connected to a network, with full disk encryption, guarded by orks
+  when not used).  Also: **MAKE BACKUPS !!!**.
+
+  NB: Use `shred` or `wipe` instead of `rm`.
+
 []: }}}1
 
-## Preparation
+## orks
 
-### Packages
+[]: {{{1
 
-  * `both`: `gnupg2`
-  * `daily`: `pinentry-gtk2`, ...
+### 1. Packages
 
-### Configuration Files
+  * `gnupg2`
+
+### 2. Configuration
+
+  * Configuration Files
+  * udev ???
+
+### 3. Generate Key(s)
+
+```
+$ pkill gpg-agent
+
+# generate 4096-bit RSA key (sign only) (expire after 5y ?!)
+$ gpg2 --gen-key
+
+# adduid (Nx), primary
+$ gpg2 --edit $KEY
+
+# addkey (signing)
+$ gpg2 --edit $KEY
+
+# addkey (encryption)
+$ gpg2 --edit $KEY
+
+# addkey (authentication)
+$ gpg2 --expert --edit $KEY
+
+# generate revocation certificate
+$ gpg2 --gen-revoke $KEY
+
+# get public authentication key for ssh
+$ gpgkey2ssh $SUBKEY > $SUBKEY.pub
+```
+
+### 4. Export, Backup, Copy
+
+```
+$ gpg2 -a --export $KEY > $KEY.asc
+$ gpg2 -a --export-secrey-key $KEY > /some/encrypted/flash/drive/$KEY.private.asc
+
+$ cp -a ~/.gnupg /some/encrypted/flash/drive/gnupg-backup
+$ cp -a ~/.gnupg ~/gnupg-COPY
+```
+
+### 5. Configure Card
+
+```
+$ gpg2 --card-status
+
+# edit PIN, admin PIN, info; forcesig?
+$ gpg2 --card-edit
+```
+
+### 6. Copy Keys to Card
+
+```
+# edit copy b/c keys will be moved to card !!!
+# make sure to write down which subkey is which before toggling
+# toggle; keytocard (3x)
+$ gpg2 --homedir ~/gnupg-COPY --edit $KEY
+```
+
+[]: }}}1
+
+## daily
+
+[]: {{{1
+
+### 1. Packages
+
+  * `gnupg2`, `pinentry-gtk2`
+
+### 2. Configuration
+
+  * Configuration Files
+  * Disable `ssh-agent` autostart
+  * udev ???
+
+### 3. Import Public Key and Use Card
+
+```
+$ gpg2 --import < $KEY.asc
+
+# trust
+$ gpg2 --edit $KEY
+
+$ gpg2 --card-status
+```
+
+### 4. Test !!!
+
+  * encrypt/decrypt
+  * sign/verify
+  * w/ and w/o card
+
+[]: }}}1
+
+## Configuration Files
 
 []: {{{1
 
@@ -63,17 +162,7 @@ use-agent
 enable-ssh-support
 ```
 
-Also, disable `ssh-agent` autostart on `daily`.
-
 []: }}}1
-
-## The Card
-
-...
-
-## The Keys
-
-...
 
 ## Links
 
