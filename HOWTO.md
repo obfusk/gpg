@@ -42,7 +42,7 @@
 ### 2. Configuration
 
   * Configuration Files
-  * udev ???
+  * udev?
 
 ### 3. Generate Key(s)
 
@@ -113,7 +113,7 @@ $ gpg2 --homedir ~/gnupg-COPY --edit $KEY
 
   * Configuration Files
   * Disable `ssh-agent` autostart
-  * udev ???
+  * udev?
 
 ### 3. Import Public Key and Use Card
 
@@ -160,6 +160,19 @@ use-agent
 
 ```
 enable-ssh-support
+```
+
+[]: }}}1
+
+## udev
+
+[]: {{{1
+
+```
+$ sudo addgroup --system scard
+$ sudo adduser $YOU scard
+$ sudo cp -i .../udev/openpgp-smartcard.rules /etc/udev/rules.d/
+$ sudo service udev restart
 ```
 
 []: }}}1
