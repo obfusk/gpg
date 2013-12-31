@@ -65,7 +65,7 @@ $ gpg2 --edit $KEY
 $ gpg2 --expert --edit $KEY
 
 # generate revocation certificate
-$ gpg2 --gen-revoke $KEY
+$ gpg2 -a --gen-revoke $KEY > $KEY.revoke.asc
 
 # get public authentication key for ssh
 $ gpgkey2ssh $SUBKEY > $SUBKEY.pub
@@ -74,8 +74,10 @@ $ gpgkey2ssh $SUBKEY > $SUBKEY.pub
 ### 4. Export, Backup, Copy
 
 ```
-$ gpg2 -a --export $KEY > $KEY.asc
-$ gpg2 -a --export-secrey-key $KEY > /some/encrypted/flash/drive/$KEY.private.asc
+$ gpg2 -a --export $KEY > $KEY.public.asc
+$ gpg2 -a --export-secret-key $KEY > /some/encrypted/flash/drive/$KEY.private.asc
+
+$ cp -a $KEY.public.asc $KEY.revoke.asc /some/encrypted/flash/drive/
 
 $ cp -a ~/.gnupg /some/encrypted/flash/drive/gnupg-backup
 $ cp -a ~/.gnupg ~/gnupg-COPY
