@@ -22,7 +22,7 @@
     instructions.
   * Debian packages have slightly different names now.
   * Some operations might be easier to perform with the latest GnuPG.
-  * See also [#Troubleshooting](Troubleshooting).
+  * See also [Troubleshooting](#Troubleshooting).
 
   ---
 
