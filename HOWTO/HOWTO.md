@@ -2,7 +2,7 @@
 
     File        : HOWTO.md
     Maintainer  : Felix C. Stegerman <flx@obfusk.net>
-    Date        : 2013-12-31
+    Date        : 2017-09-08
 
     Copyright   : Copyright (C) 2013  Felix C. Stegerman
 
@@ -11,6 +11,20 @@
 ## GnuPG w/ OpenPGP Smart Card v2, Subkeys, SSH, and SHA512
 
 <!-- {{{1 -->
+
+### HEADS UP
+
+  GnuPG has changed a lot since I wrote this in 2013, but as far as I
+  know most of the information here is still accurate.
+
+  * I recall there having been an automatic configuration migration a
+    while back, but AFAIK this does not really affect these
+    instructions.
+  * Debian packages have slightly different names now.
+  * Some operations might be easier to perform with the latest GnuPG.
+  * See also [#Troubleshooting](Troubleshooting).
+
+  ---
 
   This is a short overview of the steps I took to create a new GPG
   key.  I've used subkeys and put them on an OpenPGP Smart Card v2; I
@@ -163,7 +177,30 @@ use-agent
 
 ```
 enable-ssh-support
+pinentry-program /usr/bin/pinentry-gtk-2
 ```
+
+<!-- }}}1 -->
+
+## Troubleshooting
+
+<!-- {{{1 -->
+
+  A while after I had this setup running nicely, I was suddenly unable
+  to use `gpg-agent` with normal (non-gpg) ssh keys.  I eventually
+  managed to get it to work using:
+
+```
+$ echo "pinentry-program /usr/bin/pinentry-gtk-2" >> ~/.gnupg/gpg-agent.conf
+$ gpg-connect-agent reloadagent /bye
+```
+
+  And calling `gpg-connect-agent updatestartuptty /bye` from my X
+  session (preferably automatically by adding it to e.g. `~/.xsession`
+  or another autostart file).
+
+  NB: the `pinentry-program` setting is now included in the
+  configuration example.
 
 <!-- }}}1 -->
 
