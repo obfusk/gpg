@@ -1,4 +1,4 @@
-[]: {{{1
+<!-- {{{1 -->
 
     File        : HOWTO.md
     Maintainer  : Felix C. Stegerman <flx@obfusk.net>
@@ -6,11 +6,11 @@
 
     Copyright   : Copyright (C) 2013  Felix C. Stegerman
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## GnuPG w/ OpenPGP Smart Card v2, Subkeys, SSH, and SHA512
 
-[]: {{{1
+<!-- {{{1 -->
 
   This is a short overview of the steps I took to create a new GPG
   key.  I've used subkeys and put them on an OpenPGP Smart Card v2; I
@@ -29,11 +29,11 @@
 
   NB: Use `shred` or `wipe` instead of `rm`.
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## orks
 
-[]: {{{1
+<!-- {{{1 -->
 
 ### 1. Packages
 
@@ -101,11 +101,11 @@ $ gpg2 --card-edit
 $ gpg2 --homedir ~/gnupg-COPY --edit $KEY
 ```
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## daily
 
-[]: {{{1
+<!-- {{{1 -->
 
 ### 1. Packages
 
@@ -135,11 +135,11 @@ $ gpg2 --card-status
   * sign/verify
   * w/ and w/o card
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## Configuration Files
 
-[]: {{{1
+<!-- {{{1 -->
 
 `gpg.conf`, `both`:
 
@@ -165,11 +165,11 @@ use-agent
 enable-ssh-support
 ```
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## udev
 
-[]: {{{1
+<!-- {{{1 -->
 
 ```
 $ sudo addgroup --system scard
@@ -178,11 +178,11 @@ $ sudo cp -i .../udev/openpgp-smartcard.rules /etc/udev/rules.d/
 $ sudo service udev restart
 ```
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## Links
 
-[]: {{{1
+<!-- {{{1 -->
 
   * https://wiki.debian.org/subkeys
   * https://wiki.debian.org/Smartcards/OpenPGP
@@ -201,11 +201,11 @@ $ sudo service udev restart
   * http://n22t.com/2011/03/20/Using-the-OpenPGP-Card-for-SSH-Authentication.html
   * https://alexcabal.com/creating-the-perfect-gpg-keypair/
 
-[]: }}}1
+<!-- }}}1 -->
 
 ## License
 
   Creative Commons Attribution-ShareAlike 3.0 Unported
   --- http://creativecommons.org/licenses/by-sa/3.0
 
-[]: ! ( vim: set tw=70 sw=2 sts=2 et fdm=marker : )
+<!-- vim: set tw=70 sw=2 sts=2 et fdm=marker : -->
