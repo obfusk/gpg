@@ -158,9 +158,6 @@ $ gpg2 --card-status
 `gpg.conf`, `both`:
 
 ```
-# default key server
-keyserver hkp://keys.gnupg.net
-
 # strong hashes and algorithms
 personal-digest-preferences SHA512
 cert-digest-algo SHA512
@@ -177,7 +174,6 @@ use-agent
 
 ```
 enable-ssh-support
-pinentry-program /usr/bin/pinentry-gtk-2
 ```
 
 <!-- }}}1 -->
