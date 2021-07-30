@@ -182,21 +182,9 @@ enable-ssh-support
 
 <!-- {{{1 -->
 
-  A while after I had this setup running nicely, I was suddenly unable
-  to use `gpg-agent` with normal (non-gpg) ssh keys.  I eventually
-  managed to get it to work using:
-
-```
-$ echo "pinentry-program /usr/bin/pinentry-gtk-2" >> ~/.gnupg/gpg-agent.conf
-$ gpg-connect-agent reloadagent /bye
-```
-
-  And calling `gpg-connect-agent updatestartuptty /bye` from my X
-  session (preferably automatically by adding it to e.g. `~/.xsession`
-  or another autostart file).
-
-  NB: the `pinentry-program` setting is now included in the
-  configuration example.
+  You may need to run `gpg-connect-agent updatestartuptty /bye` from
+  your X session (preferably automatically by adding it to e.g.
+  `~/.xsession` or another autostart file).
 
 <!-- }}}1 -->
 
