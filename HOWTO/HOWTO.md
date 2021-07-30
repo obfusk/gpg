@@ -192,6 +192,8 @@ enable-ssh-support
 
 <!-- {{{1 -->
 
+NB: no longer needed afaik.
+
 ```
 $ sudo addgroup --system scard
 $ sudo adduser $YOU scard
