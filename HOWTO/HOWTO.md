@@ -1,10 +1,10 @@
 <!-- {{{1 -->
 
     File        : HOWTO.md
-    Maintainer  : Felix C. Stegerman <flx@obfusk.net>
+    Maintainer  : Fay Stegerman <flx@obfusk.net>
     Date        : 2017-09-08
 
-    Copyright   : Copyright (C) 2013  Felix C. Stegerman
+    Copyright   : Copyright (C) 2013  Fay Stegerman
 
 <!-- }}}1 -->
 
